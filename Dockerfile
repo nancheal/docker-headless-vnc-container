@@ -48,7 +48,7 @@ RUN $INST_SCRIPTS/xfce_ui.sh
 ADD ./src/common/xfce/ $HOME/
 
 ### Install burpsuite pro
-# RUN $INST_SCRIPTS/burpsuite_pro.sh
+RUN $INST_SCRIPTS/burpsuite_pro.sh
 
 ### configure startup
 RUN $INST_SCRIPTS/libnss_wrapper.sh
