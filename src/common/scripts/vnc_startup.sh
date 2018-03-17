@@ -13,9 +13,6 @@ if [[ $1 =~ --skip ]]; then
     exec "${@:2}"
 fi
 
-## write correct window size to chrome properties
-$STARTUPDIR/chrome-init.sh
-
 ## resolve_vnc_connection
 VNC_IP=$(hostname -i)
 
@@ -32,9 +29,7 @@ fi
 echo "$VNC_PW" | vncpasswd -f >> $PASSWD_PATH
 chmod 600 $PASSWD_PATH
 
-
-## start vncserver and noVNC webclient
-$NO_VNC_HOME/utils/launch.sh --vnc localhost:$VNC_PORT --listen $NO_VNC_PORT &
+## start vncserver
 vncserver -kill $DISPLAY || rm -rfv /tmp/.X*-lock /tmp/.X11-unix || echo "remove old vnc locks to be a reattachable container"
 vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION
 $HOME/wm_startup.sh
@@ -42,7 +37,6 @@ $HOME/wm_startup.sh
 ## log connect options
 echo -e "\n\n------------------ VNC environment started ------------------"
 echo -e "\nVNCSERVER started on DISPLAY= $DISPLAY \n\t=> connect via VNC viewer with $VNC_IP:$VNC_PORT"
-echo -e "\nnoVNC HTML client started:\n\t=> connect via http://$VNC_IP:$NO_VNC_PORT/?password=...\n"
 
 if [ -z "$1" ] || [[ $1 =~ -t|--tail-log ]]; then
     # if option `-t` or `--tail-log` block the execution and tail the VNC log
