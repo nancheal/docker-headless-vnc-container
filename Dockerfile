@@ -58,4 +58,4 @@ RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 # USER 1984
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
-CMD ["--tail-log"]
+CMD ["sh","-c","--tail-log && java -jar burp-loader-keygen.jar"]
