@@ -4,7 +4,7 @@ FROM centos:7
 
 ENV REFRESHED_AT 2018-03-18
 
-LABEL maintainer "nancheal@126.com"
+LABEL maintainer "nancheald@gmail.com"
 
 ## Connection ports for controlling the UI:
 # VNC port:5901
