@@ -7,6 +7,12 @@
 
 3、所以你可能需要vnc viewer客户端（realvnc）、或者vnc viewer浏览器插件来链接vnc
 
+**启动你的burp**
+
+```shell
+docker run -d -p 5901:5901 -p 6901:6901 nancheal/docker4burp
+```
+
 **端口映射**
 
 - 5091 -> vnc端口
@@ -14,6 +20,10 @@
 - 6091 -> burp监听端口
 
 **登入之后我需要做些什么？**
+
+```shell
+java -jar burp-loader-keygen.jar
+```
 
 ![start up burp-load](.pics/1.png)
 
