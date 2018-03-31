@@ -46,6 +46,4 @@ java -jar burp-loader-keygen.jar
 
 2、精简镜像大小
 
-3、导出证书（文件复制）（已完成 - docker cp）
-
-4、设置分辨率大小
+3、替换壁纸
